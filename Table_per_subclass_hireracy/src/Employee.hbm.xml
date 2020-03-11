@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+<class name="com.Employee" table="Employee1">
+<id name="id" column="pid" />
+<property name="name" column="name" />
+<property name="sal" column="salary" />
+
+
+
+<joined-subclass name="com.SWEmployee" table="SWEmployee">
+     <key column="id" />
+     <property name="tool" column="Tooltype" length="10" />
+</joined-subclass>
+
+
+
+
+<joined-subclass name="com.HWEmployee" table="HWEmployee">
+     <key column="id" />
+     <property name="WHours" column="WorkHours" length="10" />
+</joined-subclass>
+
+
+<joined-subclass name="com.Admin" table="AdminEmployee">
+     <key column="id" />
+     <property name="Dept" column="Department" length="10" />
+</joined-subclass>
+
+
+</class>
+</hibernate-mapping>
