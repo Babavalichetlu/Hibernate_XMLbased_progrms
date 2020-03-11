@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+<class name="com.Employee" table="Employee">
+<id name="id" column="pid" />
+<discriminator column="dcolumn" type="string" length="5"/>
+<property name="name" column="name" />
+<property name="sal" column="salary" />
+
+
+
+<subclass name="com.SWEmployee" discriminator-value="SW">
+     <property name="tool" column="Tooltype" length="10" />
+</subclass>
+
+
+
+
+<subclass name="com.HWEmployee" discriminator-value="HW">
+     <property name="WHours" column="WorkHours" length="10" />
+</subclass>
+
+
+<subclass name="com.Admin" discriminator-value="Admin">
+     <property name="Dept" column="Department" length="10" />
+</subclass>
+
+
+</class>
+</hibernate-mapping>
